@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card mt-3">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Create new appointement</h2>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input class="form-control" [(ngModel)]="newAppointementTitle" placeholder="Appointement description">
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" [(ngModel)]="newAppointementDate" placeholder="Appointement date">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100" (click)="addAppointement()">Add</button>
+            </div>
+        </div>
+    </div>
+    <h2 class="text-center mt-5">Appointements</h2>
+    <ul class="list-group mt-3">
+        <li class="list-group-item d-flex justify-content-between align-item-center" *ngFor="let apointement of appointements; index as i">
+            {{apointement.id}} {{apointement.title}} {{apointement.date | date: 'dd.mm.yy'}}
+            <button class="btn btn-danger" (click)="deleteAppointement(i)">Delete</button>
+        </li>
+    </ul>
+</div>
